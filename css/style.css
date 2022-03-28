@@ -7,6 +7,11 @@
           box-sizing: border-box;
 }
 
+.home {
+  background-image: url("/files/background.jpg");
+  background-position: center;
+}
+
 body {
   background: -webkit-gradient(linear, left top, right top, from(#F5DDDD), to(#8e60c4));
   background: linear-gradient(to right, #F5DDDD, #8e60c4);
@@ -75,6 +80,104 @@ input::-ms-input-placeholder {
 
 input::placeholder {
   color: #f99d9d;
+}
+
+.home .main_container {
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+}
+
+.home .main_container .navbar {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 6;
+  grid-column: 2 / span 6;
+}
+
+.home .main_container .navbar nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 120px;
+}
+
+.home .main_container .navbar nav .logo {
+  margin-left: 50px;
+  margin-top: 30px;
+}
+
+.home .main_container .navbar nav .links {
+  margin-left: auto;
+}
+
+.home .main_container .navbar nav .links a {
+  margin-left: 100px;
+  padding: 0.8rem 1.5rem;
+  width: 22rem;
+  border-radius: 0.2rem;
+  outline: none;
+  border: none;
+  font-size: medium;
+  background-color: #F99D9D;
+  color: white;
+  cursor: pointer;
+  -webkit-transition: background 0.5s;
+  transition: background 0.5s;
+}
+
+.home .main_container .navbar nav .links a:hover {
+  background: #f33d3d radial-gradient(circle, transparent 1%, #f33d3d 1%) center/15000%;
+}
+
+.home .main_container .navbar nav .links a:active {
+  background-color: #ee0f0f;
+  background-size: 100%;
+  -webkit-transition: background 0s;
+  transition: background 0s;
+}
+
+.home .main_container .navbar nav .links .button_med {
+  margin-right: 15px;
+  padding: 10px 50px;
+  padding: 0.8rem 1.5rem;
+  width: 22rem;
+  border-radius: 0.2rem;
+  outline: none;
+  border: none;
+  font-size: medium;
+  background-color: #F99D9D;
+  color: white;
+  cursor: pointer;
+  -webkit-transition: background 0.5s;
+  transition: background 0.5s;
+}
+
+.home .main_container .navbar nav .links .button_med:hover {
+  background: #f33d3d radial-gradient(circle, transparent 1%, #f33d3d 1%) center/15000%;
+}
+
+.home .main_container .navbar nav .links .button_med:active {
+  background-color: #ee0f0f;
+  background-size: 100%;
+  -webkit-transition: background 0s;
+  transition: background 0s;
+}
+
+.home .main_container .info {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2 / span 2;
+  margin-left: 1400px;
+  margin-top: 100px;
+}
+
+.home .main_container .info .hero_font {
+  color: white;
+  font-weight: 800;
+  font-size: 4.375rem;
 }
 
 .container {
@@ -206,6 +309,128 @@ input::placeholder {
   transition: background 0s;
 }
 
+.container_registration {
+  height: 75vh;
+  width: 60vw;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.container_registration .title {
+  font-size: large;
+  margin-top: 5rem;
+}
+
+.container_registration .form {
+  height: 60%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.container_registration .form .user-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.container_registration .form .user-details .input-box {
+  margin: auto;
+  width: 370px;
+}
+
+.container_registration .form .user-details .input-box .details {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.container_registration .form .user-details .input-box .input {
+  height: 45px;
+  width: 120%;
+}
+
+.container_registration .section-two {
+  height: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container_registration .section-two button {
+  padding: 0.8rem 1.5rem;
+  width: 22rem;
+  border-radius: 0.2rem;
+  outline: none;
+  border: none;
+  font-size: medium;
+  background-color: #F99D9D;
+  color: white;
+  cursor: pointer;
+  -webkit-transition: background 0.5s;
+  transition: background 0.5s;
+}
+
+.container_registration .section-two button:hover {
+  background: #f33d3d radial-gradient(circle, transparent 1%, #f33d3d 1%) center/15000%;
+}
+
+.container_registration .section-two button:active {
+  background-color: #ee0f0f;
+  background-size: 100%;
+  -webkit-transition: background 0s;
+  transition: background 0s;
+}
+
+@media screen and (max-width: 650px) {
+  .logo {
+    height: 1rem;
+  }
+  .a .button_med {
+    width: 15rem;
+  }
+  .info {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 6;
+    grid-column: 2 / span 6;
+  }
+  .info .hero_font {
+    font-size: 2.1875rem;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .container {
     height: 35rem;
@@ -217,6 +442,21 @@ input::placeholder {
     width: 15rem;
   }
   .container .section-two button {
+    width: 15rem;
+  }
+  .container_registration {
+    height: 35rem;
+  }
+  .container_registration .form .user-details {
+    overflow-y: scroll;
+  }
+  .container_registration .form .user-details .input-box {
+    width: 15rem;
+  }
+  .container_registration .form .user-details .input-box .input {
+    width: 15rem;
+  }
+  .container_registration .section-two button {
     width: 15rem;
   }
 }
