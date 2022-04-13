@@ -223,7 +223,25 @@ $accent:#fcbdbd;
         @include buttonStyles($newAccountButtonColor, $newAccountButtonTextColor);
       }
     }
-  }
+    .section-three{
+      height: 20%;
+      @include enableFlex();
+        button {
+          justify-content: space-between;
+          @include buttonStyles($newAccountButtonColor, $newAccountButtonTextColor);
+        }
+    
+    }
+    .section-four{
+      height: 20%;
+      @include enableFlex();
+      
+      button {
+        @include buttonStyles($newAccountButtonColor, $newAccountButtonTextColor);
+      }
+    }
+}
+
 
 
   
@@ -245,7 +263,7 @@ $accent:#fcbdbd;
   
 }
   
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1175px) {
     .container {
       height: 35rem;
       .section-one {
@@ -281,6 +299,16 @@ $accent:#fcbdbd;
       .section-two {
         button {
           width: 15rem;
+        }
+      }
+      .section-three{
+        button{
+          width:10rem;
+        }
+      }
+      .section-four{
+        button{
+          width:10rem;
         }
       }
     }
