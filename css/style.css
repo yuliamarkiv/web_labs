@@ -414,6 +414,85 @@ input::placeholder {
   transition: background 0s;
 }
 
+.container_registration .section-three {
+  height: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container_registration .section-three button {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0.8rem 1.5rem;
+  width: 22rem;
+  border-radius: 0.2rem;
+  outline: none;
+  border: none;
+  font-size: medium;
+  background-color: #F99D9D;
+  color: white;
+  cursor: pointer;
+  -webkit-transition: background 0.5s;
+  transition: background 0.5s;
+}
+
+.container_registration .section-three button:hover {
+  background: #f33d3d radial-gradient(circle, transparent 1%, #f33d3d 1%) center/15000%;
+}
+
+.container_registration .section-three button:active {
+  background-color: #ee0f0f;
+  background-size: 100%;
+  -webkit-transition: background 0s;
+  transition: background 0s;
+}
+
+.container_registration .section-four {
+  height: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container_registration .section-four button {
+  padding: 0.8rem 1.5rem;
+  width: 22rem;
+  border-radius: 0.2rem;
+  outline: none;
+  border: none;
+  font-size: medium;
+  background-color: #F99D9D;
+  color: white;
+  cursor: pointer;
+  -webkit-transition: background 0.5s;
+  transition: background 0.5s;
+}
+
+.container_registration .section-four button:hover {
+  background: #f33d3d radial-gradient(circle, transparent 1%, #f33d3d 1%) center/15000%;
+}
+
+.container_registration .section-four button:active {
+  background-color: #ee0f0f;
+  background-size: 100%;
+  -webkit-transition: background 0s;
+  transition: background 0s;
+}
+
 @media screen and (max-width: 650px) {
   .logo {
     height: 1rem;
@@ -431,7 +510,7 @@ input::placeholder {
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1175px) {
   .container {
     height: 35rem;
   }
@@ -458,6 +537,12 @@ input::placeholder {
   }
   .container_registration .section-two button {
     width: 15rem;
+  }
+  .container_registration .section-three button {
+    width: 10rem;
+  }
+  .container_registration .section-four button {
+    width: 10rem;
   }
 }
 /*# sourceMappingURL=style.css.map */

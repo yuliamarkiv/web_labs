@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit form</title>
     <link rel="stylesheet" href="css/style.css"> 
+    <script src="src/edit_user.js" type="module" defer></script>
 </head>
 <body>
     <div class="container_registration">
@@ -14,34 +15,40 @@
             <div class="user-details">
                 <div class="input-box">
                     <span class="details">Edit Full Name</span>
-                    <input type="text" placeholder="Enter your name" required>
+                    <input id="name" type="text" placeholder="Enter your full name">
                 </div>
                 <div class="input-box">
                     <span class="details">Edit Username</span>
-                    <input type="text" placeholder="Enter your username" required>
+                    <input id="username" type="text" placeholder="Enter your username">
                 </div>
                 <div class="input-box">
                     <span class="details">Edit Email</span>
-                    <input type="text" placeholder="Enter your email" required>
+                    <input id="email" type="text" placeholder="Enter your email"required>
                 </div>
                 <div class="input-box">
                     <span class="details">Edit Location</span>
-                    <input type="text" placeholder="Enter your location">
+                    <input id="location" type="text" placeholder="Enter your location">
                 </div>
                 <div class="input-box">
                     <span class="details">Edit Password</span>
-                    <input type="password" placeholder="Enter your password" required>
+                    <input id="password" type="password" placeholder="Enter your password" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Confirm Password</span>
-                    <input type="password" placeholder="Confirm your password" required>
+                    <input id="confirm_password" type="password" placeholder="Confirm your password" required>
                 </div>
+                
             </div>
-            
+            <div id="error-message"></div>
         </div>
-        <div class="section-two">
+        <div class="section-three">
             <div class="Submit">
-              <button>Submit</button>
+              <button id="loginButton">Submit</button>
+              <button id="logout_button">Logout</button>
+        </div>
+        </div>
+        <div class ="section-four">
+            <button id = "deleteButton">Delete account</button>
         </div>
     </div>
 </body>

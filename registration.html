@@ -6,42 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration form</title>
     <link rel="stylesheet" href="css/style.css"> 
+    <script src="src/registration.js" type="module" defer></script>
 </head>
 <body>
     <div class="container_registration">
         <div class="title">Registration</div>
-        <div class="form">
+        <form class="form">
             <div class="user-details">
                 <div class="input-box">
                     <span class="details">Full Name</span>
-                    <input type="text" placeholder="Enter your name" required>
+                    <input name="name" type="text" placeholder="Enter your name" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Username</span>
-                    <input type="text" placeholder="Enter your username" required>
+                    <input name="username" type="text" placeholder="Enter your username" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Email</span>
-                    <input type="text" placeholder="Enter your email" required>
+                    <input name="email" type="text" placeholder="Enter your email" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Location</span>
-                    <input type="text" placeholder="Enter your location">
+                    <input name="location" type="text" placeholder="Enter your location">
                 </div>
                 <div class="input-box">
                     <span class="details">Password</span>
-                    <input type="password" placeholder="Enter your password" required>
+                    <input name="password" type="password" placeholder="Enter your password" required>
                 </div>
                 <div class="input-box">
                     <span class="details">Confirm Password</span>
-                    <input type="password" placeholder="Confirm your password" required>
+                    <input id="password2" type="password" placeholder="Confirm your password" required>
                 </div>
             </div>
-            
-        </div>
+        </form>
+        <div id="error-message"></div>
         <div class="section-two">
             <div class="Register">
-              <button>Register</button>
+              <button name="submitButton">Register</button>
         </div>
     </div>
 </body>
