@@ -12,26 +12,30 @@ const Main = () => {
         navigate("/login");
     }
     const ads = () => {
-        navigate("advertisments")
+        navigate("/advertisments")
+    }
+    const locations = () => {
+        navigate("/locations")
     }
 
    
     return (
         <>
-    <section class ="home">
+    <section className ="home">
         <header>
             <nav>
-            <img class="logo" src={logo} alt="logo"/>
-            <div class = "links">
-                <button class ="search_ads" id = "SearchAds" onClick={ads} >Search advertisements</button>
-                <button class="button_med" id="SignButton" onClick={register}  >Sign Up</button>
-                <button class="button_med" id="loginButton" onClick={login} >Login</button>
+            <img className="logo" src={logo} alt="logo"/>
+            <div className = "links">
+                <button className= "search_ads" id = "SearchAds" onClick={ads} >Search advertisements</button>
+                <button className="button_med" id="SignButton" onClick={register}  >Sign Up</button>
+                <button className="button_med" id="loginButton" onClick={login} >Login</button>
+                <button className="button_med" id="locations" onClick={locations} > See Locations </button>
             </div>
             </nav>
         </header>
            
-    <section class ="info">
-        <h1 class = "hero_font">An online advertising platform</h1>
+    <section className ="info">
+        <h1 className = "hero_font">An online advertising platform</h1>
      </section>
     </section>
     </>
