@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "js-base64": "^3.7.2"
+    "js-base64": "^3.7.2",
+    "react-modal": "^3.15.1"
   }
 }

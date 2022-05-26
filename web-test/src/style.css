@@ -50,33 +50,6 @@ input::placeholder {
   color: #f99d9d;
 }
 
-input {
-  padding: 0.8rem 1rem;
-  width: 22rem;
-  border-radius: 0.2rem;
-  border: #F99D9D 0.01rem solid;
-  color: #F99D9D;
-  background-color: #F5DDDD;
-  margin-bottom: 0.8rem;
-  font-size: large;
-}
-
-input::-webkit-input-placeholder {
-  color: #f99d9d;
-}
-
-input:-ms-input-placeholder {
-  color: #f99d9d;
-}
-
-input::-ms-input-placeholder {
-  color: #f99d9d;
-}
-
-input::placeholder {
-  color: #f99d9d;
-}
-
 .home {
   background-image: url("./files/background.jpg");
   height: 100vh;
@@ -90,7 +63,7 @@ input::placeholder {
 }
 
 .home nav .logo {
-  margin-left: 40px;
+  margin-left: 50px;
   margin-top: 30px;
 }
 
@@ -100,7 +73,7 @@ input::placeholder {
 }
 
 .home nav .links .search_ads {
-  margin-right: 30px;
+  margin-right: 100px;
   padding: 0.8rem 1.5rem;
   width: 22rem;
   border-radius: 0.2rem;
@@ -126,10 +99,9 @@ input::placeholder {
 }
 
 .home nav .links .button_med {
-  margin-right: 15px;
-  padding: 10px 50px;
+  margin-right: 100px;
   padding: 0.8rem 1.5rem;
-  width: 22rem;
+  width: 10rem;
   border-radius: 0.2rem;
   outline: none;
   border: none;
@@ -143,13 +115,6 @@ input::placeholder {
 
 .home nav .links .button_med:hover {
   background: #f33d3d radial-gradient(circle, transparent 1%, #f33d3d 1%) center/15000%;
-}
-
-.home nav .links .button_med:active {
-  background-color: #ee0f0f;
-  background-size: 100%;
-  -webkit-transition: background 0s;
-  transition: background 0s;
 }
 
 .home .info {
@@ -410,6 +375,12 @@ input::placeholder {
           align-items: center;
 }
 
+.container_registration .section-three .space {
+  width: 30px;
+  height: auto;
+  display: inline-block;
+}
+
 .container_registration .section-three button {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
@@ -438,8 +409,83 @@ input::placeholder {
   transition: background 0s;
 }
 
-.container_registration .section-four {
-  height: 20%;
+.container-ads {
+  height: 80vh;
+  width: 70vw;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.container-ads .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: large;
+  margin-bottom: 10px;
+}
+
+.container-ads form .ads-details .section-one .input-box {
+  margin-left: 70px;
+}
+
+.container-ads form .ads-details .section-one .input-box .details {
+  margin-right: 42px;
+  padding-right: 10px;
+}
+
+.container-ads form .ads-details .section-one .input-box .detailsId {
+  margin-right: 62px;
+  padding-right: 10px;
+}
+
+.container-ads form .ads-details .section-one .input-box .details2 {
+  margin-right: 27px;
+}
+
+.container-ads form .ads-details .section-one .selector {
+  margin-left: 65px;
+  margin-bottom: 10px;
+}
+
+.container-ads form .ads-details .section-one .selector .currency {
+  margin-left: 29px;
+  padding: 0.8rem 1rem;
+  width: 22rem;
+  border: 0.01rem solid #F99D9D;
+  color: #F99D9D;
+  background-color: #F5DDDD;
+  border-radius: 0.2rem;
+  margin-bottom: 0.8rem;
+  resize: vertical;
+  margin-top: 15px;
+}
+
+.container-ads form .ads-details .section-two .input-text .info {
+  width: 100%;
+  height: 200px;
+  padding: 12px 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 2px solid #F99D9D;
+  border-radius: 4px;
+  background-color: #F5DDDD;
+  resize: none;
+}
+
+.container-ads form .ads-details .section-three {
+  margin-top: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -451,7 +497,7 @@ input::placeholder {
           align-items: center;
 }
 
-.container_registration .section-four button {
+.container-ads form .ads-details .section-three button {
   padding: 0.8rem 1.5rem;
   width: 22rem;
   border-radius: 0.2rem;
@@ -465,28 +511,104 @@ input::placeholder {
   transition: background 0.5s;
 }
 
-.container_registration .section-four button:hover {
+.container-ads form .ads-details .section-three button:hover {
   background: #f33d3d radial-gradient(circle, transparent 1%, #f33d3d 1%) center/15000%;
 }
 
-.container_registration .section-four button:active {
+.container-ads form .ads-details .section-three button:active {
   background-color: #ee0f0f;
   background-size: 100%;
   -webkit-transition: background 0s;
   transition: background 0s;
 }
 
+.adscontainer {
+  overflow-y: scroll;
+  height: 45rem;
+  width: 70vw;
+}
+
+.adscontainer .title {
+  margin-left: 20px;
+  color: #8e60c4;
+}
+
+.adscontainer .title .space {
+  width: 30px;
+  height: auto;
+  display: inline-block;
+}
+
+.adscontainer .ads-container {
+  width: 60vw;
+  display: block;
+  margin-left: 20px;
+  border: 2px solid #F99D9D;
+  background-color: white;
+  border-radius: 20px;
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.8rem;
+  -webkit-box-shadow: 5px 5px;
+          box-shadow: 5px 5px;
+}
+
+.adscontainer .ads-container .space {
+  width: 50px;
+  height: auto;
+  display: inline-block;
+}
+
+.adscontainer .ads-container button {
+  margin-left: 400px;
+  font-size: 15px;
+  color: white;
+  background-color: #F99D9D;
+  margin-bottom: 0.8rem;
+  width: 10rem;
+  height: 2rem;
+  border: #F99D9D 0.01rem solid;
+}
+
+.adscontainer .ads-container button:hover {
+  background-color: #8e60c4;
+  color: #000000;
+}
+
+.topnav {
+  margin-bottom: 40px;
+  overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.topnav a {
+  float: left;
+  color: #000000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #F5DDDD;
+  color: #8e60c4;
+}
+
 @media screen and (max-width: 650px) {
   .logo {
     height: 1rem;
+    size: 1rem;
   }
-  .a .button_med {
-    width: 15rem;
+  .a .search_ads .button_med {
+    width: 5rem;
   }
   .info {
-    -ms-grid-column: 2;
-    -ms-grid-column-span: 6;
-    grid-column: 2 / span 6;
+    margin-left: 10px;
   }
   .info .hero_font {
     font-size: 2.1875rem;
@@ -494,6 +616,18 @@ input::placeholder {
 }
 
 @media only screen and (max-width: 1175px) {
+  .container-ads {
+    height: 35rem;
+  }
+  .container-ads .form input {
+    width: 15rem;
+  }
+  .container-ads .form .currency {
+    width: 15rem;
+  }
+  .container-ads .section-three button {
+    width: 10rem;
+  }
   .container {
     height: 35rem;
   }
@@ -524,8 +658,9 @@ input::placeholder {
   .container_registration .section-three button {
     width: 10rem;
   }
-  .container_registration .section-four button {
-    width: 10rem;
+  .adscontainer {
+    height: 35rem;
+    overflow-y: scroll;
   }
 }
 /*# sourceMappingURL=style.css.map */

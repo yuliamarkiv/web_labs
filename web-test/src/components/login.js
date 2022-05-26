@@ -38,7 +38,7 @@ const loginButtonHandler = event => {
           return response.text();
       })
       .then(() => {
-          console.log('1')
+          // console.log('1')
           window.localStorage.setItem('logged_in_user', hash);
           navigate('/edit_user');
       })
@@ -53,23 +53,23 @@ if (localStorage.getItem('logged_in_user')){
   return <Navigate to="/edit_user"/>;
 }
     return (
-      <div class="container">
-      <div class="section-one">
-       <div class="title">
+      <div className="container">
+      <div className="section-one">
+       <div className="title">
            <h1>Login</h1>
        </div>
-        <form  class="main-form" onSubmit={loginButtonHandler}>
+        <form  className="main-form" onSubmit={loginButtonHandler}>
           <input type="text" name = "username" placeholder="Username" 
 								onChange={handleChange} />
           <input type="password" name="password" placeholder="Password" 
 								onChange={handleChange}/>
           
-          <button className="loginButton" onclick = {loginButtonHandler} type='submit'>Login</button>
+          <button className="loginButton" onClick = {loginButtonHandler} type='submit'>Login</button>
           {errorMessage && <div id="error-message">{errorMessage}</div>}
           </form>
       </div>
-      <div class="section-two">
-        <div class="new-account">
+      <div className="section-two">
+        <div className="new-account">
         
           <button onClick={createAccount}>Create New Account</button>
         </div>

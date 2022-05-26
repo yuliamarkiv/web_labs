@@ -1,6 +1,7 @@
 import React , {useState, useEffect}  from 'react';
 import { useNavigate , Navigate} from 'react-router-dom';
 import { encode as base64_encode, decode as base64_decode } from 'js-base64';
+import Header from './header';
 const EditUser = ()  => {
     const backendurl = 'http://127.0.0.1:5000/api/v1/user/'
     const navigate = useNavigate();
@@ -38,6 +39,7 @@ const EditUser = ()  => {
                 setUser({
                     ...user,
                     name: data.name,
+                    username: data.username,
                     locationId: data.locationId,
                     password: base64_decode(logged_in)
                         .split(':')[1],
@@ -45,6 +47,7 @@ const EditUser = ()  => {
                         .split(':')[1],
                 });
             })
+            
             .catch(error => {
                 console.log(error);
 
@@ -62,11 +65,6 @@ const EditUser = ()  => {
             ...user,
             [e.target.name]: e.target.value
         });
-    };
-    const handleLogoutButton = e => {
-        e.preventDefault();
-        localStorage.removeItem('logged_in_user');
-        navigate('/login');
     };
 
     const deleteButtonHandler = event => {
@@ -105,6 +103,7 @@ const EditUser = ()  => {
 
         const data = {
             name: user.name,
+            username: user.username,
             locationId: user.locationId,
             password: user.password,
             confirm_password: user.confirm_password
@@ -123,14 +122,16 @@ const EditUser = ()  => {
                 if (!response.ok) {
                     throw new Error(await response.text());
                 }
+
                 const hash = base64_encode(`${data.username}:${data.password}`);
                 localStorage.setItem('logged_in_user', hash);
+                console.log('1')
                 setLogged_in(hash);
                 navigate('/login');
             })
             .catch((error) => {
                 console.log(error)
-                let errorMessage = error.message;
+                let errorMessage = JSON.parse(error.message).message;
                 setErrorMessage(errorMessage);
             });
     };
@@ -140,47 +141,47 @@ const EditUser = ()  => {
     }
 
     return (
-        <div class="container_registration">
-        <div class="title">Change your information</div>
-        <div class="form" >
-            <div class="user-details">
-                <div class="input-box">
-                    <span class="details">Edit Full Name</span>
-                    <input name="name" type="text" placeholder="Enter your full name" onChange={handleChange}/>
+         <div> <Header/> 
+        <div className="container_registration">
+        <div className="title">Change your information</div>
+        <div className="form" >
+            <div className="user-details">
+                <div className="input-box">
+                    <span className="details">Edit Full Name</span>
+                    <input className="name" type="text" placeholder="Enter your full name" onChange={handleChange} value = {user.name} />
                 </div>
-                <div class="input-box">
-                    <span class="details">Edit Username</span>
-                    <input name="username" type="text" placeholder="Enter your username" onChange={handleChange} value={user.username} />
+                <div className="input-box">
+                    <span className="details">Edit Username</span>
+                    <input className="username" type="text" placeholder="Enter your username" onChange={handleChange} value = {user.username}/>
                 </div>
-                <div class="input-box">
-                    <span class="details">Edit Email</span>
-                    <input name="email" type="text" placeholder="Enter your email" onChange={handleChange} value = {user.email} required/>
+                <div className="input-box">
+                    <span className="details">Edit Email</span>
+                    <input className="email" type="text" placeholder="Enter your email" onChange={handleChange}/>
                 </div>
-                <div class="input-box">
-                    <span class="details">Edit Location</span>
-                    <input name="locationId" type="text" placeholder="Enter your location" onChange={handleChange}/>
+                <div className="input-box">
+                    <span className="details">Edit Location</span>
+                    <input className="locationId" type="text" placeholder="Enter your location" onChange={handleChange}/>
                 </div>
-                <div class="input-box">
-                    <span class="details">Edit Password</span>
-                    <input name="password" type="password" placeholder="Enter your password" onChange={handleChange} required/>
+                <div className="input-box">
+                    <span className="details">Edit Password</span>
+                    <input className="password" type="password" placeholder="Enter your password" onChange={handleChange} required/>
                 </div>
-                <div class="input-box">
-                    <span class="details">Confirm Password</span>
-                    <input name="confirm_password" type="password" placeholder="Confirm your password" onChange={handleChange} required/>
+                <div className="input-box">
+                    <span className="details">Confirm Password</span>
+                    <input className="confirm_password" type="password" placeholder="Confirm your password" onChange={handleChange} required/>
                 </div>
                 
             </div>
             {errorMessage && <div id="error-message">{errorMessage }</div>}
         </div>
-        <div class="section-three">
-            <div class="Submit">
+        <div className="section-three">
+            <div className="Submit">
               <button id="loginButton" onClick={saveButtonHandler}>Submit</button>
-              <button id="logout_button" onClick={handleLogoutButton}>Logout</button>
+              <div className="space"> </div>
+              <button id = "deleteButton" onClick={deleteButtonHandler}>Delete account</button>
         </div>
         </div>
-        <div class ="section-four">
-            <button id = "deleteButton" onClick={deleteButtonHandler}>Delete account</button>
-        </div>
+    </div>
     </div>
       );
     };
