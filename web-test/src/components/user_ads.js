@@ -109,6 +109,10 @@ const deleteButtonHandler = (event,ad) => {
         method: 'DELETE',
         headers,
     })
+    .then(() => {
+        navigator('/user_ads')
+    })
+        
         .catch((error) => {
             let errorMessage = error.message;
             setErrorMessage(errorMessage);

@@ -20,7 +20,7 @@ const [adsData, setadsData] = useState({
   
 
 const handleChange = e => {
-    // console.log(e)
+    console.log(e.target.value)
     setadsData({
         ...adsData,
         [e.target.name]: e.target.value
@@ -67,9 +67,11 @@ const saveHandler = event => {
         
     })
     
+    
         .then(async (response) => {
         if (response.status !== 200) {
             throw new Error(await response.text());
+            
             
         }
         return response.text();
@@ -78,12 +80,14 @@ const saveHandler = event => {
             navigator("/user_ads");
         })
         .catch((error) => {
+            console.log(adsData)
             console.log(error)
             let errorMessage = JSON.parse(error.message).message;
             setErrorMessage(errorMessage);
         });
 
 };
+console.log(adsData)
 if (!localStorage.getItem('logged_in_user')) {
     navigator('/login')
 }
@@ -106,7 +110,7 @@ return (
                 </div>
                 <div className="input-box">
                     <span className="details">Price</span>
-                    <input className ="price" type="text" onChange={handleChange} required/>
+                    <input name ="price" type="text" onChange={handleChange} required/>
                 </div>
                 <div className="selector">
                 <span className="details">Currency</span>
@@ -118,7 +122,7 @@ return (
                 </div>
                 <div className="input-box">
                     <span className="details2">Location</span>
-                    <input className="locationId" type="text" onChange={handleChange}/>
+                    <input name="locationId" type="text" onChange={handleChange}/>
                 </div>    
 				</div>
 			<div className = "section-two">
