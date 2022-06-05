@@ -49,7 +49,7 @@ const loginButtonHandler = event => {
       });
 };
 if (localStorage.getItem('logged_in_user')){
-  console.log('logged_in_user')
+  // console.log('logged_in_user')
   return <Navigate to="/edit_user"/>;
 }
     return (
@@ -58,7 +58,7 @@ if (localStorage.getItem('logged_in_user')){
        <div className="title">
            <h1>Login</h1>
        </div>
-        <form  className="main-form" onSubmit={loginButtonHandler}>
+        <form  className="main-form" onSubmit={loginButtonHandler} name="form">
           <input type="text" name = "username" placeholder="Username" 
 								onChange={handleChange} />
           <input type="password" name="password" placeholder="Password" 
