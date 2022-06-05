@@ -1,5 +1,5 @@
 import React , {useState, useEffect} from 'react';
-function Ads (){
+const Ads =  () => {
     const [adsData, setAdsData] = useState('');
     const [errorMessage,setErrorMessage] = useState('');
     const getPublicAdsUrl = 'http://127.0.0.1:5000/api/v1/service/ads'
@@ -42,7 +42,7 @@ function Ads (){
             } = ad;
                 return (
                     <div className='ads-container'>
-                        <div> 
+                        <div role ="ads"> 
                         <p> Number of advertisment: advertisment = {id}</p>
                         <p> Title: {name}</p>
                         <p>{text}</p>

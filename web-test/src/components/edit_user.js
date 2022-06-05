@@ -125,12 +125,10 @@ const EditUser = ()  => {
 
                 const hash = base64_encode(`${data.username}:${data.password}`);
                 localStorage.setItem('logged_in_user', hash);
-                console.log('1')
                 setLogged_in(hash);
                 navigate('/login');
             })
             .catch((error) => {
-                console.log(error)
                 let errorMessage = JSON.parse(error.message).message;
                 setErrorMessage(errorMessage);
             });
@@ -144,7 +142,7 @@ const EditUser = ()  => {
          <div> <Header/> 
         <div className="container_registration">
         <div className="title">Change your information</div>
-        <div className="form" >
+        <form className="form" name ="form" >
             <div className="user-details">
                 <div className="input-box">
                     <span className="details">Edit Full Name</span>
@@ -173,12 +171,12 @@ const EditUser = ()  => {
                 
             </div>
             {errorMessage && <div id="error-message">{errorMessage }</div>}
-        </div>
-        <div className="section-three">
+        </form>
+        <div className="section-three" role="buttons">
             <div className="Submit">
-              <button id="loginButton" onClick={saveButtonHandler}>Submit</button>
+              <button id="loginButton" onClick={saveButtonHandler} name="submit">Submit</button>
               <div className="space"> </div>
-              <button id = "deleteButton" onClick={deleteButtonHandler}>Delete account</button>
+              <button id = "deleteButton" onClick={deleteButtonHandler} name="delete">Delete account</button>
         </div>
         </div>
     </div>

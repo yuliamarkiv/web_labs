@@ -25,7 +25,7 @@ const Main = () => {
         <header>
             <nav>
             <img className="logo" src={logo} alt="logo"/>
-            <div className = "links">
+            <div className = "links" data-testid="buttons">
                 <button className= "search_ads" id = "SearchAds" onClick={ads} >Search advertisements</button>
                 <button className="button_med" id="SignButton" onClick={register}  >Sign Up</button>
                 <button className="button_med" id="loginButton" onClick={login} >Login</button>

@@ -1,6 +1,6 @@
 import React , {useState}from 'react';
 import { useNavigate,Navigate } from 'react-router-dom';
-function Register() {
+const Register = () => {
    const backendurl = "http://127.0.0.1:5000/api/v1/user"
    const navigate = useNavigate();
    const [errorMessage,setErrorMessage] = useState('');
@@ -60,40 +60,40 @@ function Register() {
       return <Navigate to="/advertisments"/>;
     }
     return (
-      <div class="container_registration">
-      <div class="title">Registration</div>
-      <form class="form"  onSubmit={handleSubmit}>
-          <div class="user-details">
-              <div class="input-box">
-                  <span class="details">Full Name</span>
+      <div className="container_registration">
+      <div className="title">Registration</div>
+      <form className="form" onSubmit={handleSubmit}  name="form">
+          <div className="user-details">
+              <div className="input-box">
+                  <span className="details">Full Name</span>
                   <input name="name" type="text" placeholder="Enter your name" required onChange={handleChange} />
               </div>
-              <div class="input-box">
-                  <span class="details">Username</span>
+              <div className="input-box">
+                  <span className="details">Username</span>
                   <input name="username" type="text" placeholder="Enter your username" required onChange={handleChange} />
               </div>
-              <div class="input-box">
-                  <span class="details">Email</span>
+              <div className="input-box">
+                  <span className="details">Email</span>
                   <input name="email" type="text" placeholder="Enter your email" required  onChange={handleChange} />
               </div>
-              <div class="input-box">
-                  <span class="details">Location</span>
+              <div className="input-box">
+                  <span className="details">Location</span>
                   <input name="locationId" type="text" placeholder="Enter your location"  onChange={handleChange}/>
               </div>
-              <div class="input-box">
-                  <span class="details">Password</span>
+              <div className="input-box">
+                  <span className="details">Password</span>
                   <input name="password" type="password" placeholder="Enter your password" required onChange={handleChange}/>
               </div>
-              <div class="input-box">
-                  <span class="details">Confirm Password</span>
+              <div className="input-box">
+                  <span className="details">Confirm Password</span>
                   <input name="confirm_password" type="password" placeholder="Confirm your password" required  onChange={handleChange}/>
               </div>
           </div>
             {errorMessage && <div id="error-message">{errorMessage }</div>}
       
-       <div class="section-two">
-          <div class="Register"  >
-            <button name="submitButton">Register</button>
+       <div className="section-two">
+          <div className="Register"  >
+            <button type='submit'>Register</button>
             </div>
       </div>
       </form>
