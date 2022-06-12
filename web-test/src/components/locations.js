@@ -33,13 +33,11 @@ function Locations (){
     const renderData = () => {
         return locationData.map((location) => {
             const {
-                id,
                 name
             } = location;
                 return (
                     <div className='ads-container'>
                         <div key="container"> 
-                        <p key = "location"> Location = {id}</p>
                         <p key = "name"> Name : {name}</p>
                         <div className="space" key = "space"> </div>
                     </div>
@@ -49,10 +47,21 @@ function Locations (){
             
 })
 }
-
+if (localStorage.getItem('logged_in_user')){
+    return (locationData && <div>
+         <Header> </Header>
+        <div className='adscontainer'>
+           <div className='title'>  <h3> Locations </h3> <div className="space"> </div> </div>
+            {renderData(locationData)}
+            {errorMessage && <div id="error-message">{errorMessage }</div>}
+           
+       </div>
+       
+       </div>
+   );
+  }
 
     return (locationData && <div>
-        <Header> </Header>
         <div className='adscontainer'>
            <div className='title'>  <h3> Locations </h3> <div className="space"> </div> </div>
             {renderData(locationData)}

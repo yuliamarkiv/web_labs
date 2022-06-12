@@ -15,7 +15,7 @@ const [adsData, setadsData] = useState({
     price: '',
     currency: '',
     date: '',
-    locationId: '',
+    locationId: null,
     userid: ''
 });
 const [userId, setUserId] = useState('');

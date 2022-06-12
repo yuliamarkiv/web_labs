@@ -38,7 +38,7 @@ const Ads =  () => {
                 price,
                 currency,
                 date,
-                locationId,
+                userId
             } = ad;
                 return (
                     <div className='ads-container'>
@@ -48,7 +48,7 @@ const Ads =  () => {
                         <p>{text}</p>
                         <p> Price: {price} {currency}</p>
                         <p> Published date: {date}</p>
-                        <p> Location Id: {locationId}</p>
+                        <p> User: {userId}</p>
                         <div class="space"> </div>
                     </div>
     

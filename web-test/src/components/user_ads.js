@@ -78,6 +78,7 @@ const renderData = () => {
                 currency,
                 date,
                 locationId,
+                userId
             } = ad;
                 return (
                     <div className='ads-container'>
@@ -87,7 +88,8 @@ const renderData = () => {
                         <p>  {text}</p>
                         <p> Price: {price} {currency}</p>
                         <p> Published date: {date} </p>
-                        <p> Location Id: {locationId}</p>
+                        <p> Location : {locationId}</p>
+                        <p> User: {userId}</p>
                         <div className="space"> </div>
                     </div>
                     <button id = "deleteButton" onClick={(event) => deleteButtonHandler(event,ad)}> Delete advertisment </button>
@@ -110,7 +112,8 @@ const deleteButtonHandler = (event,ad) => {
         headers,
     })
     .then(() => {
-        navigator('/user_ads')
+        window.location.reload()
+        // navigator('/user_ads')
     })
         
         .catch((error) => {
