@@ -33,6 +33,7 @@ useEffect(() => {
         });
         const newData = await response.json();
         setUserId(newData.id);
+        console.log(newData.id)
     };
     fetchData();
 }, []);

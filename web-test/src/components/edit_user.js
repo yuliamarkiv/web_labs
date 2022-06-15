@@ -3,28 +3,32 @@ import { useNavigate , Navigate} from 'react-router-dom';
 import { encode as base64_encode, decode as base64_decode } from 'js-base64';
 import Header from './header';
 const EditUser = ()  => {
-    const backendurl = 'http://127.0.0.1:5000/api/v1/user/'
-    const navigate = useNavigate();
-    const [user, setUser] = useState({
-        name:'',
+    const backendUrl = "http://127.0.0.1:5000/api/v1/user/"
+
+    const navigation = useNavigate();
+
+    const [userData, setUserData] = useState({
+        name: '',
         username: '',
         email: '',
         locationId: '',
         password: '',
-        confirm_password: ''
-
+        confirmPassword: '',
     });
-    const [logged_in, setLogged_in] = useState(
+
+    const [loggedInUser, setLoggedInUser] = useState(
         localStorage.getItem('logged_in_user')
     );
+
     const [errorMessage, setErrorMessage] = useState('');
+
     function getUser() {
-        let username = base64_decode(logged_in)
+        let username = base64_decode(loggedInUser)
             .split(':')[0];
         const headers = new Headers();
         headers.set('Authorization', `Basic ${localStorage.getItem('logged_in_user')}`);
         headers.set('content-type', 'application/json');
-        fetch(backendurl + username, {
+        fetch(backendUrl + username, {
             method: 'GET',
             headers,
         })
@@ -36,33 +40,31 @@ const EditUser = ()  => {
                 }
             })
             .then((data) => {
-                setUser({
-                    ...user,
+                setUserData({
+                    ...userData,
                     name: data.name,
                     username: data.username,
+                    email: data.email,
                     locationId: data.locationId,
-                    password: base64_decode(logged_in)
+                    password: base64_decode(loggedInUser)
                         .split(':')[1],
-                    confirm_password: base64_decode(logged_in)
+                    confirmPassword: base64_decode(loggedInUser)
                         .split(':')[1],
                 });
             })
-            
             .catch(error => {
                 console.log(error);
-
             });
     }
-   
+
     useEffect(() => {
         getUser();
-         // eslint-disable-next-line
     }, []);
 
     const handleChange = e => {
         setErrorMessage(null);
-        setUser({
-            ...user,
+        setUserData({
+            ...userData,
             [e.target.name]: e.target.value
         });
     };
@@ -70,50 +72,57 @@ const EditUser = ()  => {
     const deleteButtonHandler = event => {
         event.preventDefault();
 
-        const username = base64_decode(logged_in)
+        const username = base64_decode(loggedInUser)
             .split(':')[0];
         const headers = new Headers();
         headers.set('Authorization', `Basic ${localStorage.getItem('logged_in_user')}`);
         headers.set('content-type', 'application/json');
-        fetch(backendurl + username, {
+        fetch(backendUrl + username, {
             method: 'DELETE',
             headers,
         })
-            .then(() => {
+        .then(async (response) => {
+            if (response.status !== 200) {
+                throw new Error(await response.text());
+            }
+            return response.text();
+            })
+               .then(() => {
                 window.localStorage.removeItem('logged_in_user');
-                setLogged_in(null);
+                setLoggedInUser(null);
+                navigation('/login');
             })
             .catch((error) => {
-                let errorMessage = error.message;
+                let errorMessage = JSON.parse(error.message).message;
                 setErrorMessage(errorMessage);
             });
     };
 
     const saveButtonHandler = event => {
         event.preventDefault();
-        const username = base64_decode(logged_in)
+        const username = base64_decode(loggedInUser)
             .split(':')[0];
         setErrorMessage(null);
 
-        if (user.password !== user.confirm_password) {
+        if (userData.password !== userData.confirmPassword) {
             setErrorMessage('Password are not the same');
             return;
 
         }
 
         const data = {
-            name: user.name,
-            username: user.username,
-            locationId: user.locationId,
-            password: user.password,
-            confirm_password: user.confirm_password
+            name: userData.name,
+            username: userData.username,
+            email: userData.email,
+            locationId: userData.locationId,
+            password: userData.password,
+            confirmPassword: userData.confirmPassword
         };
 
         const headers = new Headers();
         headers.set('content-type', 'application/json');
         headers.set('Authorization', `Basic ${localStorage.getItem('logged_in_user')}`);
-        console.log(data)
-        fetch(backendurl + username, {
+        fetch(backendUrl + username, {
             method: 'PUT',
             body: JSON.stringify(data),
             headers,
@@ -122,11 +131,10 @@ const EditUser = ()  => {
                 if (!response.ok) {
                     throw new Error(await response.text());
                 }
-
                 const hash = base64_encode(`${data.username}:${data.password}`);
                 localStorage.setItem('logged_in_user', hash);
-                setLogged_in(hash);
-                navigate('/login');
+                setLoggedInUser(hash);
+                window.location.reload()
             })
             .catch((error) => {
                 let errorMessage = JSON.parse(error.message).message;
@@ -138,6 +146,7 @@ const EditUser = ()  => {
         return <Navigate to="/login"/>;
     }
 
+
     return (
          <div> <Header/> 
         <div className="container_registration">
@@ -146,27 +155,27 @@ const EditUser = ()  => {
             <div className="user-details">
                 <div className="input-box">
                     <span className="details">Edit Full Name</span>
-                    <input className="name" type="text" placeholder="Enter your full name" onChange={handleChange} value = {user.name} />
+                    <input className="name" type="text" placeholder="Enter your full name"  name="name" onChange={handleChange}  value={userData.name} />
                 </div>
                 <div className="input-box">
                     <span className="details">Edit Username</span>
-                    <input className="username" type="text" placeholder="Enter your username" onChange={handleChange} value = {user.username}/>
+                    <input className="username" type="text" placeholder="Enter your username" name="username" onChange={handleChange} value={userData.username} />
                 </div>
                 <div className="input-box">
                     <span className="details">Edit Email</span>
-                    <input className="email" type="text" placeholder="Enter your email" onChange={handleChange}/>
+                    <input className="email" type="text" placeholder="Enter your email" name="email" onChange={handleChange} value={userData.email}/>
                 </div>
                 <div className="input-box">
                     <span className="details">Edit Location</span>
-                    <input className="locationId" type="text" placeholder="Enter your location" onChange={handleChange}/>
+                    <input className="locationId" type="text" placeholder="Enter your location" name="locationId" onChange={handleChange}/>
                 </div>
                 <div className="input-box">
                     <span className="details">Edit Password</span>
-                    <input className="password" type="password" placeholder="Enter your password" onChange={handleChange} required/>
+                    <input className="password" type="password" placeholder="Enter your password" name="password" onChange={handleChange}  value ={userData.password} />
                 </div>
                 <div className="input-box">
                     <span className="details">Confirm Password</span>
-                    <input className="confirm_password" type="password" placeholder="Confirm your password" onChange={handleChange} required/>
+                    <input className="confirm_password" type="password" placeholder="Confirm your password" onChange={handleChange} />
                 </div>
                 
             </div>

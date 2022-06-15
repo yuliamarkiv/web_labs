@@ -62,12 +62,15 @@ if (localStorage.getItem('logged_in_user')){
   }
 
     return (locationData && <div>
+        <body>
         <div className='adscontainer'>
            <div className='title'>  <h3> Locations </h3> <div className="space"> </div> </div>
             {renderData(locationData)}
             {errorMessage && <div id="error-message">{errorMessage }</div>}
            
-       </div>
+       </div>  
+        </body>
+        
        
        </div>
    );

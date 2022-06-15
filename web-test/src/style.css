@@ -52,6 +52,8 @@ input::placeholder {
 
 .home {
   background-image: url("./files/background.jpg");
+  background-size: contain;
+  background-position: center;
   height: 100vh;
   width: 100vw;
 }
@@ -612,6 +614,31 @@ input::placeholder {
   }
   .info .hero_font {
     font-size: 2.1875rem;
+  }
+  .button_med {
+    width: 5rem;
+  }
+  .container_registration {
+    height: 25rem;
+  }
+  .container_registration .form .user-details {
+    overflow-y: scroll;
+  }
+  .container_registration .form .user-details .input-box {
+    width: 5rem;
+  }
+  .container_registration .form .user-details .input-box .input {
+    width: 5rem;
+  }
+  .container_registration .section-two button {
+    width: 5rem;
+  }
+  .container_registration .section-three button {
+    width: 5rem;
+  }
+  .adscontainer {
+    height: 35rem;
+    overflow-y: scroll;
   }
 }
 

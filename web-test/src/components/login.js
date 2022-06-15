@@ -38,7 +38,6 @@ const loginButtonHandler = event => {
           return response.text();
       })
       .then(() => {
-          // console.log('1')
           window.localStorage.setItem('logged_in_user', hash);
           navigate('/edit_user');
       })
